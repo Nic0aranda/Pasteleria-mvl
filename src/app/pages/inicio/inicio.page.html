@@ -1,13 +1,51 @@
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+</head>
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>inicio</ion-title>
+<!--navbar-->
+  <ion-toolbar class="navbar">
+    <ion-img slot="end" scr="" alt="Icono tienda" ></ion-img>
+    <div class="ion-page" id="main-content"></div>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+<!--menu desplegable del navbar-->
+<ion-menu contentId="main-content">
+  <ion-list>
+    <ion-button >Registrarse</ion-button>
+    <ion-button >Iniciar sesion</ion-button>
+    <ion-title style="text-align: center;">Tipos de productos</ion-title>
+<!--<ion-item *ngFor="let item of productos">
+      <ion-label>{{item.name}}</ion-label>
+    </ion-item>-->
+  </ion-list>
+  
+</ion-menu>
+
+<!--pagina principal-->
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">inicio</ion-title>
+      <ion-title style="text-align: center;">Pasteleria las Torres</ion-title>
+      <!--carrusel-->
+      <ion-toolbar class="fondo-carrusel">
+      <div class="swiper-container" slides-per-view="3" speed="500" loop="true" css-mode="true">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="" alt="pastel 1">
+          </div>
+          <div class="swiper-slide">
+            <img src="" alt="pastel 2">
+          </div>
+          <div class="swiper-slide">
+            <img src="" alt="pastel 3">
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
     </ion-toolbar>
-  </ion-header>
 </ion-content>
