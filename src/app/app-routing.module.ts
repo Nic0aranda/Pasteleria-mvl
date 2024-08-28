@@ -20,9 +20,17 @@ const routes: Routes = [
     loadChildren: () => import('./pages/signin/signin.module').then( m => m.SigninPageModule)
   },
   {
+    path: 'carrito',
+    loadChildren: () => import('./pages/carrito/carrito.module').then( m => m.CarritoPageModule)
+  },
+  {
+    path: 'validacion-compra',
+    loadChildren: () => import('./pages/validacion-compra/validacion-compra.module').then( m => m.ValidacionCompraPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
-  },
+  }
 ];
 
 @NgModule({
