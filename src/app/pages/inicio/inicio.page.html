@@ -1,11 +1,6 @@
-<head>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-</head>
 <ion-header [translucent]="true">
-<!--navbar-->
-<ion-toolbar class="navbar">
-    <ion-img src="/src/assets/img/logo.png" slot="end" alt="Icono tienda" />
+  <ion-toolbar class="navbar">
+    <img class="logo-nav" src="https://i.imgur.com/BVgYr5A.jpg" slot="end" alt="Icono tienda"/>
     <div class="ion-page" id="main-content"></div>
     <ion-buttons slot="start">
       <ion-menu-button auto-hide="false"></ion-menu-button>
@@ -13,11 +8,10 @@
   </ion-toolbar>
 </ion-header>
 
-<!--menu desplegable del navbar-->
 <ion-menu contentId="main-content">
   <ion-list>
     <ion-button [routerLink]="['/signin']">Registrarse</ion-button>
-    <ion-button [routerLink]="['/login']">Iniciar sesion</ion-button>
+    <ion-button [routerLink]="['/login']">Iniciar sesión</ion-button>
     <ion-item [routerLink]="['/inicio']">
       <ion-icon name="home"></ion-icon>
       <ion-label>Inicio</ion-label>
@@ -29,34 +23,25 @@
   </ion-list>
 </ion-menu>
 
-<!--pagina principal-->
 <ion-content [fullscreen]="true">
-      <ion-title style="text-align: center;">Pasteleria las Torres</ion-title>
-      <!--carrusel-->
-      <ion-toolbar class="fondo-carrusel">
-      <div class="swiper-container" slides-per-view="3" speed="500" loop="true" css-mode="true">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="" alt="pastel 1">
-          </div>
-          <div class="swiper-slide">
-            <img src="" alt="pastel 2">
-          </div>
-          <div class="swiper-slide">
-            <img src="" alt="pastel 3">
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+  <ion-title style="text-align: center;">Pasteleria las Torres</ion-title>
+  <ion-toolbar class="fondo-carrusel">
+    <div class="carousel-container">
+      <button class="carousel-button prev">&#10094;</button>
+      <div class="carousel-wrapper">
+        <div class="carousel-slide">
+          <img src="" alt="pastel 1">
+        </div>
+        <div class="carousel-slide">
+          <img src="" alt="pastel 2">
+        </div>
+        <div class="carousel-slide">
+          <img src="" alt="pastel 3">
         </div>
       </div>
-    </ion-toolbar>
-    
-    <!--Cartas-->
-    <!--<ion-item *ngFor="let item of productos">
-      <ion-img src="{{item.img}}" alt="" />
-      <ion-label>{{item.name}}</ion-label>
-      <ion-label>{{item.desc}}</ion-label>
-      <ion-price>{{item.precio}}</ion-price>
-    </ion-item>-->
+      <button class="carousel-button next">&#10095;</button>
+    </div>
+  </ion-toolbar>
 </ion-content>
+
+
