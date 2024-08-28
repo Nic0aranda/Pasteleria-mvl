@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="text-align: center;">
+    <img src="" alt="imagen logo">
+    <p>Ingrese su informacion para agendar el retiro</p>
+    <ion-input label="Correo" label-placement="floating" type="email" fill="outline" placeholder="Correo electronico">
+    </ion-input>
+    <br>
+    <ion-input label="telefono" label-placement="floating" type="email" fill="outline" placeholder="Ingrese su numero de telefono">
+    </ion-input>
+    <br>
+    <ion-input id="fecha" label="Fecha de retiro" label-placement="floating" type="date" fill="outline"></ion-input>
+    <ion-menu contentId="fecha">
+      <ion-label>Fecha de retiro</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" value="2024-12-31"></ion-datetime>
+    </ion-menu>
+  </div>
+</ion-content>

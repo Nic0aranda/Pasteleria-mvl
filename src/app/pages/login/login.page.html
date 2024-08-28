@@ -1,8 +1,13 @@
 <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+</ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding ion-text-center">
-  <img src="" alt="icono tienda" class="logo">
+  <img src="/src/assets/img/logo.png" alt="icono tienda" class="logo">
   <div>
     <h1>Inicio de sesión</h1>
     <p>Ingresa tus datos para acceder</p>
@@ -17,7 +22,7 @@
     <ion-button expand="block" color="primary">Ingresar</ion-button>
   </div>
   <div>
-    <a href="#">¿No tienes una cuenta?</a>
-    <ion-button expand="block" color="primary">Crear cuenta</ion-button>
+    <p>¿No tienes una cuenta?</p>
+    <ion-button [routerLink]="['/signin']" expand="block" color="primary">Crear cuenta</ion-button>
   </div>
 </ion-content>

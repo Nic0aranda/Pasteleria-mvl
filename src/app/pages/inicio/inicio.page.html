@@ -4,8 +4,8 @@
 </head>
 <ion-header [translucent]="true">
 <!--navbar-->
-  <ion-toolbar class="navbar">
-    <ion-img slot="end" scr="" alt="Icono tienda" ></ion-img>
+<ion-toolbar class="navbar">
+    <ion-img src="/src/assets/img/logo.png" slot="end" alt="Icono tienda" />
     <div class="ion-page" id="main-content"></div>
     <ion-buttons slot="start">
       <ion-menu-button auto-hide="false"></ion-menu-button>
@@ -16,14 +16,17 @@
 <!--menu desplegable del navbar-->
 <ion-menu contentId="main-content">
   <ion-list>
-    <ion-button >Registrarse</ion-button>
-    <ion-button >Iniciar sesion</ion-button>
-    <ion-title style="text-align: center;">Tipos de productos</ion-title>
-<!--<ion-item *ngFor="let item of productos">
-      <ion-label>{{item.name}}</ion-label>
-    </ion-item>-->
+    <ion-button [routerLink]="['/signin']">Registrarse</ion-button>
+    <ion-button [routerLink]="['/login']">Iniciar sesion</ion-button>
+    <ion-item [routerLink]="['/inicio']">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/carrito']">
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>Carrito</ion-label>
+    </ion-item>
   </ion-list>
-  
 </ion-menu>
 
 <!--pagina principal-->
@@ -48,4 +51,12 @@
         </div>
       </div>
     </ion-toolbar>
+    
+    <!--Cartas-->
+    <!--<ion-item *ngFor="let item of productos">
+      <ion-img src="{{item.img}}" alt="" />
+      <ion-label>{{item.name}}</ion-label>
+      <ion-label>{{item.desc}}</ion-label>
+      <ion-price>{{item.precio}}</ion-price>
+    </ion-item>-->
 </ion-content>
