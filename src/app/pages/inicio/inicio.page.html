@@ -10,8 +10,8 @@
 
 <ion-menu contentId="main-content">
   <ion-list>
-    <ion-button [routerLink]="['/signin']">Registrarse</ion-button>
-    <ion-button [routerLink]="['/login']">Iniciar sesión</ion-button>
+    <ion-button id="boton-signin" [routerLink]="['/signin']">Registrarse</ion-button>
+    <ion-button id="boton-login" [routerLink]="['/login']">Iniciar sesión</ion-button>
     <ion-item [routerLink]="['/inicio']">
       <ion-icon name="home"></ion-icon>
       <ion-label>Inicio</ion-label>
@@ -30,18 +30,32 @@
       <button class="carousel-button prev">&#10094;</button>
       <div class="carousel-wrapper">
         <div class="carousel-slide">
-          <img src="" alt="pastel 1">
+          <img src="https://i.imgur.com/RNp3AqO.png" alt="pastel">
         </div>
         <div class="carousel-slide">
-          <img src="" alt="pastel 2">
+          <img src="https://i.imgur.com/LlwfULV.png" alt="brownie">
         </div>
         <div class="carousel-slide">
-          <img src="" alt="pastel 3">
+          <img src="https://i.imgur.com/UpL2dhJ.png" alt="Kuchen">
         </div>
       </div>
       <button class="carousel-button next">&#10095;</button>
     </div>
   </ion-toolbar>
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let producto of Productos">
+          <ion-img [src]="producto.img" alt="{{producto.nombre}}" class="product-img"></ion-img>
+          <ion-label>
+            <h2>{{ producto.nombre }}</h2>
+            <p>{{ producto.descripcion }}</p>
+            <ion-button expand="full">Agregar al carrito</ion-button>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>  
 </ion-content>
 
 

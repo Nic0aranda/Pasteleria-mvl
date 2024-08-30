@@ -1,32 +1,39 @@
 //navbar
 .logo-nav{
-    width: 50px;
+  width: 50px;
 }
 //menu desplegable
-
+#boton-signin{
+ background-color:blue;
+ color: white;
+}
+#boton-login{
+ background-color:blue;
+ color: white;
+ }
 //carrusel
 .carousel-container {
     position: relative;
     width: 100%;
     overflow: hidden;
-  }
+}
   
-  .carousel-wrapper {
+.carousel-wrapper {
     display: flex;
     transition: transform 0.5s ease;
-  }
+}
   
-  .carousel-slide {
-    min-width: 100%;
+.carousel-slide {
+    min-width: 100%; 
     box-sizing: border-box;
-  }
+}
   
-  .carousel-slide img {
+.carousel-slide img {
     width: 100%;
-    height: auto;
-  }
+    height: 20rem;
+}
   
-  .carousel-button {
+.carousel-button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -34,16 +41,22 @@
     color: white;
     border: none;
     padding: 10px;
-    cursor: pointer;
     font-size: 20px;
     z-index: 10;
-  }
+}
   
-  .carousel-button.prev {
+.carousel-button.prev {
     left: 10px;
-  }
+}
   
-  .carousel-button.next {
+.carousel-button.next {
     right: 10px;
-  }
-  
+}
+
+//cards
+
+.product-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover; 
+}
