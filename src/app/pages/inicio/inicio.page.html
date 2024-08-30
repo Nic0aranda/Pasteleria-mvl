@@ -30,13 +30,13 @@
       <button class="carousel-button prev">&#10094;</button>
       <div class="carousel-wrapper">
         <div class="carousel-slide">
+          <img src="https://i.imgur.com/UpL2dhJ.png" alt="Kuchen">
+        </div>
+        <div class="carousel-slide">
           <img src="https://i.imgur.com/RNp3AqO.png" alt="pastel">
         </div>
         <div class="carousel-slide">
           <img src="https://i.imgur.com/LlwfULV.png" alt="brownie">
-        </div>
-        <div class="carousel-slide">
-          <img src="https://i.imgur.com/UpL2dhJ.png" alt="Kuchen">
         </div>
       </div>
       <button class="carousel-button next">&#10095;</button>
@@ -45,16 +45,20 @@
   <ion-card>
     <ion-card-content>
       <ion-list>
-        <ion-item *ngFor="let producto of Productos">
-          <ion-img [src]="producto.img" alt="{{producto.nombre}}" class="product-img"></ion-img>
-          <ion-label>
-            <h2>{{ producto.nombre }}</h2>
-            <p>{{ producto.descripcion }}</p>
-            <ion-button expand="full">Agregar al carrito</ion-button>
-          </ion-label>
+        <ion-item class="display-card" *ngFor="let producto of Productos">
+          <div class="product-image">
+            <ion-img [src]="producto.img" alt="{{producto.nombre}}" class="product-img"></ion-img>
+          </div>
+          <div class="product-details">
+            <ion-label>
+              <h2>{{ producto.nombre }}</h2>
+              <p>{{ producto.descripcion }}</p>
+              <ion-button expand="full">Agregar al carrito</ion-button>
+            </ion-label>
+          </div>
         </ion-item>
       </ion-list>
-    </ion-card-content>
+    </ion-card-content>        
   </ion-card>  
 </ion-content>
 
