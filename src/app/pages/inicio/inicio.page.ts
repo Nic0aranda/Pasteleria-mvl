@@ -1,4 +1,3 @@
-import { identifierName } from '@angular/compiler';
 import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
