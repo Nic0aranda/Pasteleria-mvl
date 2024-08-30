@@ -2,6 +2,14 @@
 .logo-nav{
   width: 50px;
 }
+.navbar{
+  display: flex;
+  justify-content: space-between;
+}
+.Nombre-tienda{
+  color: white;
+  text-align: center;
+}
 //menu desplegable
 #boton-signin{
  background-color:blue;
