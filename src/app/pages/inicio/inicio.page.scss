@@ -64,7 +64,18 @@
 .carousel-button.next {
     right: 10px;
 }
+//titulos
+.subtitulo{
+  text-align: center;
+}
 
+.fondo-subtitulo{
+  padding: 1rem 3rem;
+  background-color: rgb(17, 22, 73);
+  color: white;
+  margin: 10px;
+  border-radius: 5%;
+}
 //cards
 .display-card {
   display: flex;

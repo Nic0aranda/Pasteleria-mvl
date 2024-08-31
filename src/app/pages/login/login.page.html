@@ -2,27 +2,42 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
-</ion-buttons>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding ion-text-center">
-  <img class="logo-form" src="https://i.imgur.com/BVgYr5A.jpg" alt="icono tienda">
-  <div>
-    <h1>Inicio de sesión</h1>
-    <p>Ingresa tus datos para acceder</p>
-  </div>
-  <div class="ion-text start">
-    <ion-input label="Correo" label-placement="floating" type="email" fill="outline" placeholder="Correo electronico">
-    </ion-input>
-    <br>
-    <ion-input label="Contraseña" label-placement="floating" type="password" fill="outline" placeholder="Contraseña">
-    </ion-input>
-    <br>
-    <ion-button expand="block" color="primary">Ingresar</ion-button>
-  </div>
-  <div>
-    <p>¿No tienes una cuenta?</p>
-    <ion-button [routerLink]="['/signin']" expand="block" color="primary">Crear cuenta</ion-button>
+  <div class="contenedor">
+    <img class="logo-form" src="https://i.imgur.com/BVgYr5A.jpg" alt="logo local">
+      <h2>Registro</h2>
+    <div class="fondo-formulario">
+      <ion-input
+        class="formulario"
+        required
+        type="email"
+        label="E-Mail"
+        label-placement="floating"
+        fill="outline"
+        placeholder="email@dominio.com"
+        [(ngModel)]="correo"
+      ></ion-input>
+
+      <ion-input
+          class="formulario"
+          type="password"
+          required
+          label="Contraseña"
+          label-placement="floating"
+          fill="outline"
+          placeholder="Ingrese su contraseña"
+          [(ngModel)]="contrasena"
+        ></ion-input>
+        
+    </div>
+    <div>
+      <ion-button (click)="iniciarSesion()" expand="block" color="primary">Ingresar</ion-button>
+      <p>¿No tienes una cuenta?</p>
+      <ion-button [routerLink]="['/signin']" expand="block" color="primary">Crear cuenta</ion-button>
+    </div>
   </div>
 </ion-content>

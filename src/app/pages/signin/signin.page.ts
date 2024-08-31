@@ -14,7 +14,6 @@ export class SigninPage implements OnInit{
   ngOnInit() {
     this.menuCtrl.enable(false,'vendedor')
     this.menuCtrl.enable(false,'comprador')
-
   }
 
 
