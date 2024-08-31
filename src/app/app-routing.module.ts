@@ -28,9 +28,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/validacion-compra/validacion-compra.module').then( m => m.ValidacionCompraPageModule)
   },
   {
+    path: 'signin',
+    loadChildren: () => import('./pages/signin/signin.module').then( m => m.SigninPageModule)
+  },
+  {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   }
+  
 ];
 
 @NgModule({
