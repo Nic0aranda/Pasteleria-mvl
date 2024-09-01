@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, MenuController, ToastController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signin',
@@ -9,28 +9,24 @@ import { AlertController, MenuController, ToastController } from '@ionic/angular
 })
 export class SigninPage implements OnInit{
 
-  constructor(private menuCtrl: MenuController,private alertController: AlertController,  private router: Router, private toastController: ToastController) {}
+  Comprador: any ={
+    correo: '',
+    telefono: '',
+    contrasena: '',
+    confirmarContrasena: ''
+    }
+  
+    correo!:string;
+    telefono!:string;
+    contrasena!:string;
+    confirmarContrasena!:string;
+  
+    
+  constructor(private alertController: AlertController,  private router: Router, private toastController: ToastController) {}
 
   ngOnInit() {
-    this.menuCtrl.enable(false,'vendedor')
-    this.menuCtrl.enable(false,'comprador')
   }
 
-
-
-  Comprador: any ={
-  correo: '',
-  telefono: '',
-  contrasena: '',
-  confirmarContrasena: ''
-  }
-
-  correo!:string;
-  telefono!:string;
-  contrasena!:string;
-  confirmarContrasena!:string;
-
-  
   formulario(){
     const patronEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const patronContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/;

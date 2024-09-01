@@ -1,4 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { Router} from '@angular/router';
+import { AlertController , ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-pages-inicio',
@@ -76,6 +78,12 @@ export class InicioPage implements AfterViewInit {
 
   currentIndex = 0;
 
+  constructor(
+    private alertController: AlertController,
+    private router: Router,
+    private toastController: ToastController
+  ) {}
+
   ngAfterViewInit() {
     const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<HTMLElement>;
     const totalSlides = slides.length;
@@ -95,6 +103,38 @@ export class InicioPage implements AfterViewInit {
       this.currentIndex = (this.currentIndex < totalSlides - 1) ? this.currentIndex + 1 : 0;
       updateCarousel(this.currentIndex);
     });
+  }
+  agregarCarrito(){
+    this.alerta('Producto agregado', 'Su producto a sido agregado con exito al carrito');
+  }
+  async alerta(titulo: string, mensaje: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensaje,
+      buttons: [
+        {
+          text: 'OK',
+          role: 'cancel',
+        },
+        {
+          text: 'Ir al carrito',
+          handler: () => {
+            this.router.navigate(['/carrito']);
+        }
+      }
+      ]
+    });
+    await alert.present();
+  }
+  
+
+  async presentToast(titulo: string, mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000,
+      position: 'top',
+    });
+    await toast.present();
   }
 }
 
