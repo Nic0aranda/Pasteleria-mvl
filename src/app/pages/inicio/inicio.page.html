@@ -58,7 +58,7 @@
             <ion-label>
               <h2>{{ producto.nombre }}</h2>
               <p>{{ producto.descripcion }}</p>
-              <ion-button expand="full">Agregar al carrito</ion-button>
+              <ion-button (click)="agregarCarrito()" expand="full">Agregar al carrito</ion-button>
             </ion-label>
           </div>
         </ion-item>
