@@ -58,13 +58,24 @@
             <ion-label>
               <h2>{{ producto.nombre }}</h2>
               <p>{{ producto.descripcion }}</p>
+              <div class="precio-producto">
+                <p>${{producto.precio}}</p>
+              </div>
               <ion-button (click)="agregarCarrito()" expand="full">Agregar al carrito</ion-button>
             </ion-label>
           </div>
         </ion-item>
       </ion-list>
     </ion-card-content>        
-  </ion-card>  
+  </ion-card>
+  <!--envio de datos exitoso-->
+  <div *ngIf="correo; else noCorreo">
+    <pre>{{correo}}</pre>
+  </div>
+  <!--envio de datos fallido-->
+  <ng-template #noCorreo>
+    <p>No se recibió contenido del correo.</p>
+  </ng-template>
 </ion-content>
 
 
