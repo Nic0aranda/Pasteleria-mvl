@@ -28,6 +28,7 @@ a{
 
 /* Carrucel general */
 .section-carrusel{
+    background-image: url('../img/bg-carretera.jpg');
     background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -71,12 +72,6 @@ a{
     border-radius: 10px;
     margin: 20px;
     width: 18rem
-}
-.card:hover{
-    cursor: pointer;
-}
-.card:hover{
-    cursor: pointer;
 }
 
 .fondo-seccion{
@@ -153,6 +148,10 @@ a{
     margin-bottom: 20px;
 }
 
+.celda-compra {
+    margin: 10px 0px;
+}
+
 .no-lista-style{
     list-style: none;
     padding: 0;
@@ -174,11 +173,13 @@ a{
 }
 
 .form-control{
-    color: black;
-    border-color: #1a1919;
-	margin-bottom: 10px;
-	padding-bottom: 20px;
-	position: relative;
+    color: white;
+    border-color: #454545;
+    background-color: #0000;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+    display: grid;
 }
 
 .form-control label {

@@ -13,16 +13,23 @@ class accesoUsuario(forms.Form):
     password = forms.CharField(label="Contraseña", widget=forms.PasswordInput)
 
 class registroVehiculo(forms.Form):
-    marca = forms.CharField(label= "la marca del vehiculo",max_length=30)
-    modelo = forms.CharField(label= "el modelo del vehiculo",max_length=30)
-    carroceria = forms.CharField(label= "la carroceria del vehiculo",max_length=30)
-    combustible = forms.CharField(label= "el combustible del vehiculo",max_length=30)
-    anio = forms.IntegerField(label= "el año del vehiculo")
-    transmision = forms.CharField(label= "la transmisión del vehiculo",max_length=30)
-    precio = forms.IntegerField(label= "el precio del vehiculo")
-    cantidad = forms.IntegerField(label="cantidad de vehiculo")
-    descripcion = forms.CharField(label="descripcion", max_length=250)
-    image = forms.ImageField()
+    marca = forms.CharField(label= "Marca:",max_length=30)
+    modelo = forms.CharField(label= "Modelo:",max_length=30)
+    carroceria = forms.CharField(label= "Carrocería",max_length=30)
+    combustible = forms.CharField(label= "Tipo de Combustible",max_length=30)
+    anio = forms.IntegerField(label= "Año del vehículo", min_value=1000)
+    transmision = forms.CharField(label= "Transmisión",max_length=30)
+    precio = forms.IntegerField(label= "Precio", min_value=0)
+    cantidad = forms.IntegerField(label="Stock", min_value=0)
+    descripcion = forms.CharField(label="Descripción", max_length=250, widget=forms.Textarea)
+
+class registroAccesorio(forms.Form):
+    nombre = forms.CharField(label="Nombre descriptivo del accesorio:", max_length=50)
+    distribuidor = forms.CharField(label="Distribuidor:", max_length=50)
+    precio=forms.IntegerField(label="Precio:", min_value=0)
+    cantidad = forms.IntegerField(label="Stock", min_value=0)
+    descripcion = forms.CharField(label="Descripción", max_length=250, widget=forms.Textarea)
+
 
 class registroUsuario(UserCreationForm):
     class Meta:
@@ -36,16 +43,3 @@ class registroUsuario(UserCreationForm):
             'password1': 'Contraseña',
             'password2': 'Confirmar contraseña'
         }
-    
-    """
-    def __init__(self, *args, **kwargs):
-        super(registroUsuario, self).__init__(*args, **kwargs)
-        # Obtén el grupo predeterminado
-        default_group = Group.objects.get(name='cliente')
-        # Establecer el valor inicial para el campo 'groups'
-        self.fields['groups'].initial = [default_group.pk]
-        # Modificar el widget del campo 'groups' para que no permita la selección múltiple
-        self.fields['groups'].widget = forms.Select(choices=self.fields['groups'].choices)
-        # Modificar el widget del campo 'groups' para deshabilitarlo
-        self.fields['groups'].widget.attrs['disabled'] = 'disabled'
-    """
