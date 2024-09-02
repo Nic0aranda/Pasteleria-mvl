@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { Router } from '@angular/router';
 import { AlertController, MenuController, ToastController } from '@ionic/angular';
 
 interface Usuario {
@@ -14,7 +14,7 @@ interface Usuario {
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  usuarios: Usuario[] = [
+  Usuarios: Usuario[] = [
     {
       correo: 'ale.aranda@duocuc.cl',
       telefono: '990131943',
@@ -29,13 +29,12 @@ export class LoginPage implements OnInit {
   correo!: string;
   contrasena!: string;
 
-  constructor(private menuCtrl: MenuController, private alertController: AlertController, private toastController: ToastController,
-    private router: Router, private activerouter: ActivatedRoute ) { this.activerouter.queryParams.subscribe(param =>{
-     if(this.router.getCurrentNavigation()?.extras.state){
-       this.usuarios = this.router.getCurrentNavigation()?.extras?.state?.['correo'];
-       this.contrasena = this.router.getCurrentNavigation()?.extras?.state?.['contrasena'];
-     }
-   })}
+  constructor(
+    private menuCtrl: MenuController,
+    private alertController: AlertController,
+    private router: Router,
+    private toastController: ToastController
+  ) {}
 
   ngOnInit() {
     this.menuCtrl.enable(false, 'vendedor');
@@ -45,12 +44,6 @@ export class LoginPage implements OnInit {
   async iniciarSesion() {
     const patronEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const patronContrasena = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,20}$/;
-    let navigationextras: NavigationExtras ={
-      state: {
-        correo: this.correo,
-        contrasena: this.contrasena,
-      }
-    }
 
     if (!this.correo || !this.contrasena) {
       await this.alerta('Campos vacíos', 'Todos los campos deben estar llenos');
@@ -67,18 +60,17 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    const usuarioRegistrado = this.usuarios.find(
-      u => u.correo === this.correo && u.contrasena === this.contrasena
+    const usuarioRegistrado = this.Usuarios.find(
+      Usuarios => Usuarios.correo === this.correo && Usuarios.contrasena === this.contrasena
     );
 
     if (usuarioRegistrado) {
       await this.presentToast('Inicio de sesión exitoso', 'Lo redirigiremos al inicio');
-      this.router.navigate(['/inicio'], navigationextras);
+      this.router.navigate(['/inicio']);
     } else {
       await this.alerta('Error al iniciar sesión', 'Correo o contraseña incorrectos');
     }
   }
-
 
   async alerta(titulo: string, mensaje: string) {
     const alert = await this.alertController.create({
