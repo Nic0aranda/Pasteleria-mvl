@@ -1,6 +1,6 @@
 How to install
-1. Dowload the content
-2. Extract the archive
-3. open the archive whit "code ." in the cmd
-4. write npm install in the terminal
-5. and now you can open a server whit "ionic serve"  
+1. descarga el rar.
+2. extrae el archivo.
+3. abre el archivo con tu editor de codigo.
+4. escribe npm install para instalar todo lo necesario (librerias y dependencias).
+5. abrir una vista web con ionic serve. 
