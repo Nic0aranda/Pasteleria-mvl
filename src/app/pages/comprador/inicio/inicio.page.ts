@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { AlertController , ToastController } from '@ionic/angular';
 
 @Component({
@@ -8,7 +8,11 @@ import { AlertController , ToastController } from '@ionic/angular';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements AfterViewInit {
-  
+
+  //creamos variable no estaticas para actualizarlas con los datos del login
+  correo!: string;
+  contrasena!: string;
+
   Productos: any[] = [
     {
       id: 1,
@@ -81,19 +85,29 @@ export class InicioPage implements AfterViewInit {
   constructor(
     private alertController: AlertController,
     private router: Router,
+    private route: ActivatedRoute,
     private toastController: ToastController
   ) {}
 
   ngAfterViewInit() {
+    // Recuperar datos del login
+    this.route.queryParams.subscribe(params => {
+      this.correo = window.history.state.correo;
+      this.contrasena = window.history.state.contrasena;
+    });
+
+    //creamos un carrusel que funciona por posicion
     const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<HTMLElement>;
     const totalSlides = slides.length;
 
+    // Cada vez que se mueve el slide, actualizamos el índice y el carousel
     const updateCarousel = (index: number) => {
       const offset = -index * 100; // Cada slide tiene un ancho del 100%
       const wrapper = document.querySelector('.carousel-wrapper') as HTMLElement;
       wrapper.style.transform = `translateX(${offset}%)`;
     };
 
+    // Eventos para los botones del carousel
     document.querySelector('.carousel-button.prev')?.addEventListener('click', () => {
       this.currentIndex = (this.currentIndex > 0) ? this.currentIndex - 1 : totalSlides - 1;
       updateCarousel(this.currentIndex);
@@ -104,10 +118,12 @@ export class InicioPage implements AfterViewInit {
       updateCarousel(this.currentIndex);
     });
   }
+  //funcion para alerta de producto agregado
   agregarCarrito(){
-    this.alerta('Producto agregado', 'Su producto a sido agregado con exito al carrito');
+    this.alertaCarrito('Producto agregado', 'Su producto a sido agregado con exito al carrito');
   }
-  async alerta(titulo: string, mensaje: string) {
+  //funcion para alerta de producto agregado
+  async alertaCarrito(titulo: string, mensaje: string) {
     const alert = await this.alertController.create({
       header: titulo,
       message: mensaje,

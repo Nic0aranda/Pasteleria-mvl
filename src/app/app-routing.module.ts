@@ -9,33 +9,32 @@ const routes: Routes = [
   },
   {
     path: 'inicio',
-    loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
+    loadChildren: () => import('./pages/comprador/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/comprador/login/login.module').then( m => m.LoginPageModule)
   },
   {
     path: 'signin',
-    loadChildren: () => import('./pages/signin/signin.module').then( m => m.SigninPageModule)
+    loadChildren: () => import('./pages/comprador/signin/signin.module').then( m => m.SigninPageModule)
   },
   {
     path: 'carrito',
-    loadChildren: () => import('./pages/carrito/carrito.module').then( m => m.CarritoPageModule)
+    loadChildren: () => import('./pages/comprador/carrito/carrito.module').then( m => m.CarritoPageModule)
   },
   {
     path: 'validacion-compra',
-    loadChildren: () => import('./pages/validacion-compra/validacion-compra.module').then( m => m.ValidacionCompraPageModule)
+    loadChildren: () => import('./pages/comprador/validacion-compra/validacion-compra.module').then( m => m.ValidacionCompraPageModule)
   },
   {
-    path: 'signin',
-    loadChildren: () => import('./pages/signin/signin.module').then( m => m.SigninPageModule)
+    path: 'inicio-v',
+    loadChildren: () => import('./pages/vendedor/inicio-v/inicio-v.module').then( m => m.InicioVPageModule)
   },
   {
     path: '**',
     loadChildren: () => import('./pages/notfound/notfound.module').then( m => m.NotfoundPageModule)
   }
-  
 ];
 
 @NgModule({
