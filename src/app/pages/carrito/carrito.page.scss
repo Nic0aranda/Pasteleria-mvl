@@ -2,3 +2,45 @@
 .logo-nav{
     width: 50px;
 }
+.navbar{
+    display: flex;
+    justify-content: space-between;
+}
+.Nombre-tienda{
+    color: white;
+    text-align: center;
+}
+
+//menu desplegable
+.buttons-signin-login{
+    display: flex;
+    justify-content: space-evenly;
+}
+#boton-signin{
+    background-color:blue;
+    color: white;
+}
+#boton-login{
+    background-color:blue;
+    color: white;
+}
+
+//productos carrito
+
+.fondo-carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-img{
+    width: 70%;
+    height: auto;
+    margin: 1rem auto;
+}
+
+.product-details{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

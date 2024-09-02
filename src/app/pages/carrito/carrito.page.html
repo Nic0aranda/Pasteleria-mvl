@@ -1,19 +1,20 @@
 <ion-header [translucent]="true">
-  <!--navbar-->
-    <ion-toolbar class="navbar">
-      <img class="logo-nav" src="https://i.imgur.com/BVgYr5A.jpg" slot="end" alt="Icono tienda"/>
-      <div class="ion-page" id="desplegable-carrito"></div>
-      <ion-buttons slot="start">
-        <ion-menu-button auto-hide="false"></ion-menu-button>
-      </ion-buttons>
-    </ion-toolbar>
+  <ion-toolbar class="navbar">
+    <img class="logo-nav" src="https://i.imgur.com/BVgYr5A.jpg" slot="end" alt="Icono tienda"/>
+    <ion-title class="Nombre-tienda">Pasteleria las Torres</ion-title>
+    <div class="ion-page" id="main-content"></div>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
-  
-  <!--menu desplegable del navbar-->
-<ion-menu contentId="desplegable-carrito">
+
+<ion-menu contentId="main-content">
   <ion-list>
-    <ion-button [routerLink]="['/signin']">Registrarse</ion-button>
-    <ion-button [routerLink]="['/login']">Iniciar sesion</ion-button>
+    <ion-buttons class="buttons-signin-login">
+      <ion-button id="boton-signin" [routerLink]="['/signin']">Registrarse</ion-button>
+      <ion-button id="boton-login" [routerLink]="['/login']">Iniciar sesión</ion-button>
+    </ion-buttons>
     <ion-item [routerLink]="['/inicio']">
       <ion-icon name="home"></ion-icon>
       <ion-label>Inicio</ion-label>
@@ -34,10 +35,20 @@
   </div>
   <div style="text-align: center;">
     <ion-list>
-      <!-- Aquí se mostrarán los productos del carrito -->
+      <section class="fondo-producto">
+        <div>
+          <ion-img src="https://i.imgur.com/RNp3AqO.png" alt="nombre-producto" class="product-img"></ion-img>
+        </div>
+        <div class="product-details">
+          <ion-label>
+            <h2>Torta Selva negra</h2>
+            <p>$20000</p>
+          </ion-label>
+        </div>
+      </section>
     </ion-list>
     <p>
-      Total: 
+      Total: $20000
     </p>
     <div>
       <ion-button [routerLink]="['/validacion-compra']" color="primary">Finalizar compra</ion-button>
