@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { Router} from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import { AlertController , ToastController } from '@ionic/angular';
 
 @Component({
@@ -8,7 +8,12 @@ import { AlertController , ToastController } from '@ionic/angular';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements AfterViewInit {
-  
+
+  //creamos variables vacias para recibir datos del login
+  correo!: string;
+  contrasena!: string;
+
+  //lista con los productos
   Productos: any[] = [
     {
       id: 1,
@@ -81,10 +86,19 @@ export class InicioPage implements AfterViewInit {
   constructor(
     private alertController: AlertController,
     private router: Router,
+    private route: ActivatedRoute,
     private toastController: ToastController
   ) {}
 
   ngAfterViewInit() {
+
+    //recuperamos los parametros del login desde el historial
+    this.route.queryParams.subscribe(params => {
+      this.correo = window.history.state.correo;
+      this.contrasena = window.history.state.contrasena;
+    });
+    
+    //carrusel que funciona por posiciones
     const slides = document.querySelectorAll('.carousel-slide') as NodeListOf<HTMLElement>;
     const totalSlides = slides.length;
 
@@ -104,6 +118,8 @@ export class InicioPage implements AfterViewInit {
       updateCarousel(this.currentIndex);
     });
   }
+
+  //funcion que ejecuta la alerta
   agregarCarrito(){
     this.alerta('Producto agregado', 'Su producto a sido agregado con exito al carrito');
   }
@@ -126,7 +142,7 @@ export class InicioPage implements AfterViewInit {
     });
     await alert.present();
   }
-  
+
 
   async presentToast(titulo: string, mensaje: string) {
     const toast = await this.toastController.create({
@@ -137,4 +153,3 @@ export class InicioPage implements AfterViewInit {
     await toast.present();
   }
 }
-
