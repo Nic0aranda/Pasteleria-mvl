@@ -11,10 +11,11 @@
 
 <ion-menu contentId="main-content">
   <ion-list>
-    <ion-buttons class="buttons-signin-login">
-      <ion-button id="boton-signin" [routerLink]="['/signin']">Registrarse</ion-button>
-      <ion-button id="boton-login" [routerLink]="['/login']">Iniciar sesión</ion-button>
-    </ion-buttons>
+    <ion-item>
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg"/>
+      </ion-avatar>
+    </ion-item>
     <ion-item [routerLink]="['/inicio']">
       <ion-icon name="home"></ion-icon>
       <ion-label>Inicio</ion-label>
@@ -68,12 +69,4 @@
       </ion-list>
     </ion-card-content>        
   </ion-card>
-  <!--envio de datos exitoso-->
-  <div *ngIf="correo; else noCorreo">
-    <pre>{{correo}}</pre>
-  </div>
-  <!--envio de datos fallido-->
-  <ng-template #noCorreo>
-    <p>No se recibió contenido del correo.</p>
-  </ng-template>  
 </ion-content>
