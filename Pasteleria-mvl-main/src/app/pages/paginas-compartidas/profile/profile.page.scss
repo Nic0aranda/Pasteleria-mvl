@@ -1,0 +1,28 @@
+.fondo-perfil{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(244, 244, 228);
+    width: 100%;
+    height: 100%;
+}
+
+.datos-cliente{
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+}
+
+.datos{
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.boton-actu{
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
